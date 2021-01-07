@@ -44,9 +44,86 @@ public class StringMethods {
 			
 		}
 
-		System.out.println(total);
+		System.out.println(val + "s digits added = " + total);
 		return total;
 		
 	}
+	
+
+	static String[] ones = {
+		"one",
+		"two",
+		"three",
+		"four",
+		"five",
+		"six",
+		"seven",
+		"eight",
+		"nine",
+		"ten",
+		"eleven",
+		"twelve",
+		"thirteen",
+		"fourteen",
+		"fifteen",
+		"sixteen",
+		"seventeen",
+		"eighteen",
+		"nineteen"
+	};
+	
+	static String[] tens = {
+			"ten",
+			"twenty",
+			"thirty",
+			"fourty",
+			"fifty",
+			"sixty",
+			"seventy",
+			"eighty",
+			"ninty"
+	};
+	
+	
+	static String hundred = "hundred";
+	
+	
+	static String thousand = "thousand";
+	
+	
+	public String toWords(int val) {
+		
+		String output = "";
+		
+		if (val <= 19) {
+			output = ones[val-1];
+		} else {
+			
+			int numOnes = getCharacter(val, 1);
+			output = ones[numOnes - 1];
+			
+			if (stringLength(val) >= 1) {
+				int numTens = getCharacter(val, 1);
+				output = tens[numTens - 1] + " " + output;
+			} 
+			
+			if (stringLength(val) >= 2) {
+				int numHundred = getCharacter(val, 1);
+				output = ones[numHundred - 1] + " " + hundred + " " + output;
+			}
+			
+			if (stringLength(val) >= 3) {
+				int numThousand = getCharacter(val, 0);
+				output = ones[numThousand - 1] + " " + thousand + " " + output;
+				
+			}
+			
+		}
+		
+		System.out.println(output);
+		return output;
+		
+	}
+	
 	
 }

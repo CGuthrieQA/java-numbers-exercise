@@ -6,9 +6,10 @@ public class Runner {
 		
 		StringMethods sm = new StringMethods();
 		
-		int value = 99999999;
+		int value = 15;
 		
 		sm.addDigits(value);
+		sm.toWords(value);
 
 	}
 	
